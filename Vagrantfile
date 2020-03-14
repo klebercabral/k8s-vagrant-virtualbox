@@ -1,5 +1,10 @@
 Vagrant.configure("2") do |config|
 
+  config.vm.provider "virtualbox" do |vb|
+    vb.cpus = "1"
+    vb.memory = "1024"
+  end
+
     N = 3
     (1..N).each do |machine_id|
       config.vm.define "machine#{machine_id}" do |machine|
@@ -17,11 +22,6 @@ Vagrant.configure("2") do |config|
             vb.cpus = "2"
             vb.memory = "2048"
           end
-        end
-
-        machine.vm.provider "virtualbox" do |vb|
-          vb.cpus = "1"
-          vb.memory = "1024"
         end
 
         if machine_id == N
