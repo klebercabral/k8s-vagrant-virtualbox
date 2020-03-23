@@ -19,3 +19,13 @@
     - kubelet
     - kubeadm
     - kubectl
+
+- name: Configure node-ip at kubelet
+  lineinfile:
+    path: '/etc/systemd/system/kubelet.service.d/10-kubeadm.conf'
+    line: 'Environment="KUBELET_EXTRA_ARGS=--node-ip={{ ansible_host }}"'
+    regexp: 'KUBELET_EXTRA_ARGS='
+    insertafter: '\[Service\]'
+    state: present
+  notify:
+    - restart kubelet

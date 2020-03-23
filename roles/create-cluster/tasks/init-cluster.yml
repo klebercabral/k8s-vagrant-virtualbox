@@ -4,7 +4,7 @@
   register: kubeadmin_init
 - name: Initialize Kubernetes master with kubeadm init.
   command:
-    kubeadm init --apiserver-advertise-address "{{ K8S_MASTER_NODE_IP }}" --pod-network-cidr 10.32.0.0/12
+    kubeadm init --apiserver-advertise-address="{{ K8S_MASTER_NODE_IP }}" --apiserver-cert-extra-sans="{{ K8S_MASTER_NODE_IP }}" --pod-network-cidr="192.168.112.0/20"
   register: kubeadmin_init
 - name: Ensure .kube directory exists.
   file:
