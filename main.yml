@@ -9,6 +9,7 @@
     raw: 'apt-get install -y python'
   roles:
   - { role: install-k8s, tags: ["install_k8s_role"]}
+  - { role: install-helm, tags: ["install_helm_role"]}
 
 - hosts: k8s_master
   become: yes
