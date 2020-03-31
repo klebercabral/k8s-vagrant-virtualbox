@@ -5,7 +5,7 @@
 
  - uma hostonly (rede privada 192.168.33.*)
 
-Vagrantbox: ubuntu/bionic64
+Vagrantbox: bento/ubuntu-18.04
 
 Master
 

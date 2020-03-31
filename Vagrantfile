@@ -4,7 +4,7 @@ Vagrant.configure("2") do |config|
     (1..N).each do |machine_id|
       config.vm.define "machine#{machine_id}" do |machine|
 
-        machine.vm.box =  "ubuntu/bionic64"
+        machine.vm.box =  "bento/ubuntu-18.04"
 
         machine.ssh.insert_key = false
         machine.vm.provision "file", source: "./id_rsa.pub", destination: "~/.ssh/authorized_keys"
